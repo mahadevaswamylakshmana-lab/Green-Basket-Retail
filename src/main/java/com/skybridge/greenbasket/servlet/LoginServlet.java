@@ -11,10 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
-            throws ServletException, IOException {
+protected void doPost(HttpServletRequest request,
+                      HttpServletResponse response)
+        throws ServletException, IOException {
 
-        response.getWriter().println("LoginServlet reached successfully!");
-    }
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+
+    response.setContentType("text/html");
+
+    response.getWriter().println("<h2>Login Request Received</h2>");
+    response.getWriter().println("<p>Username: " + username + "</p>");
+    response.getWriter().println("<p>Password: " + password + "</p>");
+}
 }

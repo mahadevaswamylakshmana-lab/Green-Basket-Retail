@@ -259,3 +259,10 @@ Created a dedicated LoginServlet to handle login requests.
 
 Reason:
 Separating request handling into servlets follows the MVC (Model-View-Controller) architecture, making the application easier to maintain and scale.
+Date: 18-Jul-2026
+
+Decision:
+Connected the login form to LoginServlet using the POST method.
+
+Reason:
+This establishes communication between the frontend (JSP) and backend (Servlet), allowing user input to be processed by the server.

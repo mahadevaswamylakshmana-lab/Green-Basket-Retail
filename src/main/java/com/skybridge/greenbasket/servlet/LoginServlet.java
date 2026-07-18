@@ -20,8 +20,16 @@ protected void doPost(HttpServletRequest request,
 
     response.setContentType("text/html");
 
-    response.getWriter().println("<h2>Login Request Received</h2>");
-    response.getWriter().println("<p>Username: " + username + "</p>");
-    response.getWriter().println("<p>Password: " + password + "</p>");
+    if ("admin".equals(username) && "admin123".equals(password)) {
+
+        response.getWriter().println("<h2>Login Successful</h2>");
+        response.getWriter().println("<p>Welcome Admin!</p>");
+
+    } else {
+
+        response.getWriter().println("<h2>Login Failed</h2>");
+        response.getWriter().println("<p>Invalid Username or Password</p>");
+
+    }
 }
 }

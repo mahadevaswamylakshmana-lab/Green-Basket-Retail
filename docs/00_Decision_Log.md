@@ -235,3 +235,11 @@ The Green Basket Retail application will use Maven with WAR packaging.
 ### Approved By
 
 Tech Lead
+
+Date: 18-Jul-2026
+
+Decision:
+Before redeploying an application, clean the previous deployment by removing the WAR file, extracted application folder, and Tomcat work cache.
+
+Reason:
+Old deployment artifacts or cached files can cause inconsistent behavior and make troubleshooting difficult. A clean deployment ensures Tomcat uses the latest application package.

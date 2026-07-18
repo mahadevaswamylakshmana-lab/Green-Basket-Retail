@@ -222,3 +222,13 @@ The `pom.xml` file provides Maven with the information required to build, packag
 - Maven always starts by reading `pom.xml`.
 - The packaging type determines the output artifact.
 - Without `pom.xml`, Maven cannot build the project.
+
+Task ID: GBR-013
+
+Title: Clean Tomcat Deployment Environment
+
+Objective:
+Remove previous deployment artifacts from Tomcat before redeploying the application to avoid stale files and cached data.
+
+Status:
+✅ Completed

@@ -11,17 +11,17 @@
     <h1>Green Basket Retail</h1>
     <p>Retail Finance Management System</p>
 
-    <form>
+<form action="login" method="post">
 
-        <label>Username</label>
-        <input type="text" placeholder="Enter Username">
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Enter Username">
 
-        <label>Password</label>
-        <input type="password" placeholder="Enter Password">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Enter Password">
 
-        <button type="submit">Login</button>
+    <button type="submit">Login</button>
 
-    </form>
+</form>
 
 </div>
 

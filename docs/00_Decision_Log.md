@@ -243,3 +243,19 @@ Before redeploying an application, clean the previous deployment by removing the
 
 Reason:
 Old deployment artifacts or cached files can cause inconsistent behavior and make troubleshooting difficult. A clean deployment ensures Tomcat uses the latest application package.
+
+Date: 18-Jul-2026
+
+Decision:
+Verified the application configuration (pom.xml, web.xml, project structure) and performed a clean deployment before redeploying the WAR.
+
+Reason:
+A clean deployment and systematic verification helped identify and resolve the deployment issue, resulting in a successful application startup.
+
+Date: 18-Jul-2026
+
+Decision:
+Created a dedicated LoginServlet to handle login requests.
+
+Reason:
+Separating request handling into servlets follows the MVC (Model-View-Controller) architecture, making the application easier to maintain and scale.

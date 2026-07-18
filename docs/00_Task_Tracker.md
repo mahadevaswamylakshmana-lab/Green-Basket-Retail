@@ -232,3 +232,21 @@ Remove previous deployment artifacts from Tomcat before redeploying the applicat
 
 Status:
 ✅ Completed
+Task ID: GBR-014
+
+Title: Deploy Green Basket Retail on Apache Tomcat
+
+Objective:
+Build the application using Maven and deploy the generated WAR file on Apache Tomcat.
+
+Status:
+✅ Completed
+Task ID: GBR-015
+
+Title: Create Login Servlet
+
+Objective:
+Create the first backend servlet to handle login requests from the login page.
+
+Status:
+✅ Completed

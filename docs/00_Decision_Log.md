@@ -266,3 +266,35 @@ Connected the login form to LoginServlet using the POST method.
 
 Reason:
 This establishes communication between the frontend (JSP) and backend (Servlet), allowing user input to be processed by the server.
+
+Date: 21-Jul-2026
+
+Decision:
+Implemented hardcoded authentication inside LoginServlet.
+
+Reason:
+A temporary authentication mechanism was used to validate the complete login flow before integrating a database. This allows the application workflow to be tested independently of database connectivity.
+
+Date: 21-Jul-2026
+
+Decision:
+Created a dedicated dashboard.jsp page and redirected successful logins to the dashboard.
+
+Reason:
+After authentication, users should reach a landing page from which they can access business modules. This follows the standard navigation pattern used in enterprise web applications.
+
+Date: 21-Jul-2026
+
+Decision:
+Adopted a Git feature branch workflow for application development.
+
+Reason:
+Each feature is developed, tested, reviewed, and merged independently. This minimizes risk, keeps main stable, and mirrors industry-standard software development practices.
+
+Date: 21-Jul-2026
+
+Decision:
+Manually deployed the generated WAR file to Apache Tomcat during development.
+
+Reason:
+Manual deployment simplifies verification of application functionality before introducing CI/CD automation with Jenkins.

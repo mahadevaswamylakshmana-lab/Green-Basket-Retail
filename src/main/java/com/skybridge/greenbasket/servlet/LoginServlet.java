@@ -22,8 +22,7 @@ protected void doPost(HttpServletRequest request,
 
     if ("admin".equals(username) && "admin123".equals(password)) {
 
-        response.getWriter().println("<h2>Login Successful</h2>");
-        response.getWriter().println("<p>Welcome Admin!</p>");
+        response.sendRedirect("dashboard.jsp");
 
     } else {
 

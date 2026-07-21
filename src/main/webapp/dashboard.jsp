@@ -15,15 +15,25 @@
 
     <hr>
 
-    <p><a href="#">Record Income</a></p>
+    <p>
+        <a href="income.jsp">Record Income</a>
+    </p>
 
-    <p><a href="#">Record Expense</a></p>
+    <p>
+        <a href="expense.jsp">Record Expense</a>
+    </p>
 
-    <p><a href="#">Daily Transactions</a></p>
+    <p>
+        <a href="transactions.jsp">Daily Transactions</a>
+    </p>
 
-    <p><a href="#">Daily Report</a></p>
+    <p>
+        <a href="report.jsp">Daily Report</a>
+    </p>
 
-    <p><a href="index.jsp">Logout</a></p>
+    <p>
+        <a href="LogoutServlet">Logout</a>
+    </p>
 
 </div>
 

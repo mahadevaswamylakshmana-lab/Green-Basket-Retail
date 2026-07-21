@@ -250,3 +250,33 @@ Create the first backend servlet to handle login requests from the login page.
 
 Status:
 ✅ Completed
+Task ID: GBR-016
+
+Title: Connect Login Page to LoginServlet
+
+Objective:
+Connect the login page with the backend servlet using an HTTP POST request.
+
+Status:
+✅ Completed
+Task ID: GBR-018
+
+Title:
+Implement Login Validation
+
+Objective:
+Validate user credentials using temporary hardcoded authentication and allow access only for valid users.
+
+Status:
+✅ Completed
+
+Task ID: GBR-020
+
+Title:
+Develop Dashboard Module
+
+Objective:
+Create the application dashboard and redirect authenticated users from the login page to the dashboard.
+
+Status:
+✅ Completed (Once you merge feature/dashboard into main.)

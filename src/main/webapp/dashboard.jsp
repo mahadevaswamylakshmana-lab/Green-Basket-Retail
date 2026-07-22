@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Green Basket Retail - Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,29 +12,35 @@
 
     <h1>Green Basket Retail</h1>
 
-    <h3>Dashboard</h3>
+    <p>Retail Finance Management System</p>
 
     <hr>
 
-    <p>
-        <a href="income.jsp">Record Income</a>
-    </p>
+    <h2>Dashboard</h2>
 
-    <p>
-        <a href="expense.jsp">Record Expense</a>
-    </p>
+    <div class="menu">
 
-    <p>
-        <a href="transactions.jsp">Daily Transactions</a>
-    </p>
+        <a class="menu-btn" href="income.jsp">
+            Record Income
+        </a>
 
-    <p>
-        <a href="report.jsp">Daily Report</a>
-    </p>
+        <a class="menu-btn" href="expense.jsp">
+            Record Expense
+        </a>
 
-    <p>
-        <a href="LogoutServlet">Logout</a>
-    </p>
+        <a class="menu-btn" href="transactions.jsp">
+            Daily Transactions
+        </a>
+
+        <a class="menu-btn" href="report.jsp">
+            Daily Report
+        </a>
+
+        <a class="menu-btn logout" href="LogoutServlet">
+            Logout
+        </a>
+
+    </div>
 
 </div>
 

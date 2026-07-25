@@ -1,9 +1,25 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%
+if(session.getAttribute("username") == null){
+
+    response.sendRedirect("index.jsp");
+    return;
+
+}
+%>
+
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <meta charset="UTF-8">
+
     <title>Green Basket Retail - Dashboard</title>
+
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -28,11 +44,11 @@
             Record Expense
         </a>
 
-        <a class="menu-btn" href="transactions.jsp">
+        <a class="menu-btn" href="TransactionsServlet">
             Daily Transactions
         </a>
 
-        <a class="menu-btn" href="report.jsp">
+        <a class="menu-btn" href="ReportServlet">
             Daily Report
         </a>
 
@@ -45,4 +61,5 @@
 </div>
 
 </body>
+
 </html>

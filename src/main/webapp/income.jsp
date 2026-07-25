@@ -12,47 +12,65 @@
     <h1>Green Basket Retail</h1>
     <p>Record Income</p>
 
-    <form action="IncomeServlet" method="post">
+    <<form action="IncomeServlet" method="post">
 
-        <label>Amount</label>
-        <input type="number"
-               name="amount"
-               placeholder="Enter Amount"
-               required>
+    <label>Amount</label>
+    <input type="number"
+           name="amount"
+           min="1"
+           step="0.01"
+           placeholder="Enter Amount"
+           required>
 
-        <label>Category</label>
-        <select name="category" required>
-            <option value="">-- Select Category --</option>
-            <option value="Milk Sales">Milk Sales</option>
-            <option value="Vegetable Sales">Vegetable Sales</option>
-            <option value="Grocery Sales">Grocery Sales</option>
-            <option value="Other Income">Other Income</option>
-        </select>
+    <label>Category</label>
+    <select name="category" required>
 
-        <label>Description</label>
-        <input type="text"
-               name="description"
-               placeholder="Enter Description"
-               required>
+        <option value="">-- Select Category --</option>
 
-        <label>Payment Mode</label>
-        <select name="paymentMode" required>
-            <option value="">-- Select Payment Mode --</option>
-            <option value="Cash">Cash</option>
-            <option value="UPI">UPI</option>
-            <option value="Card">Card</option>
-        </select>
+        <option value="Milk Sales">Milk Sales</option>
 
-        <label>Date</label>
-        <input type="date"
-               name="date"
-               required>
+        <option value="Vegetable Sales">Vegetable Sales</option>
 
-        <br><br>
+        <option value="Grocery Sales">Grocery Sales</option>
 
-        <button type="submit">Save Income</button>
+        <option value="Other Income">Other Income</option>
 
-    </form>
+    </select>
+
+    <label>Description</label>
+
+    <input type="text"
+           name="description"
+           minlength="3"
+           maxlength="100"
+           placeholder="Enter Description"
+           required>
+
+    <label>Payment Mode</label>
+
+    <select name="paymentMode" required>
+
+        <option value="">-- Select Payment Mode --</option>
+
+        <option value="Cash">Cash</option>
+
+        <option value="UPI">UPI</option>
+
+        <option value="Card">Card</option>
+
+    </select>
+
+    <label>Date</label>
+
+    <input type="date"
+           name="date"
+           required>
+
+    <br><br>
+
+    <button type="submit">Save Income</button>
+
+</form>
 
     <br>
 

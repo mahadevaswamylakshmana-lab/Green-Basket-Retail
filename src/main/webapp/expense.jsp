@@ -14,37 +14,67 @@
 
     <form action="ExpenseServlet" method="post">
 
-        <label>Amount</label>
-        <input type="number" name="amount" required>
+    <label>Amount</label>
 
-        <label>Category</label>
-        <select name="category" required>
-            <option>Supplier Payment</option>
-            <option>Electricity Bill</option>
-            <option>Transport</option>
-            <option>Salary</option>
-            <option>Maintenance</option>
-            <option>Other Expense</option>
-        </select>
+    <input type="number"
+           name="amount"
+           min="1"
+           step="0.01"
+           required>
 
-        <label>Description</label>
-        <input type="text" name="description" required>
+    <label>Category</label>
 
-        <label>Payment Mode</label>
-        <select name="paymentMode">
-            <option>Cash</option>
-            <option>UPI</option>
-            <option>Card</option>
-        </select>
+    <select name="category" required>
 
-        <label>Date</label>
-        <input type="date" name="date" required>
+        <option value="">-- Select Category --</option>
 
-        <br><br>
+        <option>Supplier Payment</option>
 
-        <button type="submit">Save Expense</button>
+        <option>Electricity Bill</option>
 
-    </form>
+        <option>Transport</option>
+
+        <option>Salary</option>
+
+        <option>Maintenance</option>
+
+        <option>Other Expense</option>
+
+    </select>
+
+    <label>Description</label>
+
+    <input type="text"
+           name="description"
+           minlength="3"
+           maxlength="100"
+           required>
+
+    <label>Payment Mode</label>
+
+    <select name="paymentMode" required>
+
+        <option value="">-- Select Payment Mode --</option>
+
+        <option>Cash</option>
+
+        <option>UPI</option>
+
+        <option>Card</option>
+
+    </select>
+
+    <label>Date</label>
+
+    <input type="date"
+           name="date"
+           required>
+
+    <br><br>
+
+    <button type="submit">Save Expense</button>
+
+</form>
 
     <br>
 

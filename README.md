@@ -6,10 +6,19 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <display-name>Green Basket Retail</display-name>
+    <display-name>Green Basket Retail for practice</display-name>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>
+
+
+
+
+
+
+
+
+                

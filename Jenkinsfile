@@ -9,7 +9,7 @@ pipeline {
     environment {
         EC2_HOST = "54.224.170.179"
         EC2_USER = "ubuntu"
-        REMOTE_WAR = "/home/ubuntu/green-basket-retail-1.0.0.war"
+        PEM_FILE = "C:\\Users\\MAMATHA K\\Downloads\\green-basket-key.pem"
     }
 
     stages {
@@ -34,36 +34,32 @@ pipeline {
 
         stage('Copy WAR to EC2') {
             steps {
-                sshagent(credentials: ['ec2-key']) {
-                    bat '''
-                    scp -o StrictHostKeyChecking=no target\\green-basket-retail-1.0.0.war %EC2_USER%@%EC2_HOST%:%REMOTE_WAR%
-                    '''
-                }
+                bat """
+                scp -i "%PEM_FILE%" -o StrictHostKeyChecking=no target\\green-basket-retail-1.0.0.war %EC2_USER%@%EC2_HOST%:/home/ubuntu/
+                """
             }
         }
 
-        stage('Deploy on EC2') {
+        stage('Deploy to Tomcat') {
             steps {
-                sshagent(credentials: ['ec2-key']) {
-                    bat '''
-                    ssh -o StrictHostKeyChecking=no %EC2_USER%@%EC2_HOST% "/home/ubuntu/deploy.sh"
-                    '''
-                }
+                bat """
+                ssh -i "%PEM_FILE%" -o StrictHostKeyChecking=no %EC2_USER%@%EC2_HOST% "/home/ubuntu/deploy.sh"
+                """
             }
         }
     }
 
     post {
         success {
-            echo '======================================'
-            echo 'Deployment completed successfully!'
-            echo '======================================'
+            echo "===================================="
+            echo "Deployment Successful!"
+            echo "===================================="
         }
 
         failure {
-            echo '======================================'
-            echo 'Deployment failed!'
-            echo '======================================'
+            echo "===================================="
+            echo "Deployment Failed!"
+            echo "===================================="
         }
     }
 }

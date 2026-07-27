@@ -7,10 +7,14 @@ pipeline {
     }
 
     environment {
-    EC2_HOST = "54.224.170.179"
-    EC2_USER = "ubuntu"
-    PEM_FILE = "C:\\JenkinsKeys\\green-basket-key.pem"
-}
+        EC2_HOST = "54.224.170.179"
+        EC2_USER = "ubuntu"
+
+        SSH = '"C:\\Program Files\\Git\\usr\\bin\\ssh.exe"'
+        SCP = '"C:\\Program Files\\Git\\usr\\bin\\scp.exe"'
+
+        PEM_FILE = "C:\\Users\\MAMATHA K\\Downloads\\green-basket-key.pem"
+    }
 
     stages {
 
@@ -35,7 +39,7 @@ pipeline {
         stage('Copy WAR to EC2') {
             steps {
                 bat """
-                scp -i "%PEM_FILE%" -o StrictHostKeyChecking=no target\\green-basket-retail-1.0.0.war %EC2_USER%@%EC2_HOST%:/home/ubuntu/
+                %SCP% -i "%PEM_FILE%" -o StrictHostKeyChecking=no target\\green-basket-retail-1.0.0.war %EC2_USER%@%EC2_HOST%:/home/ubuntu/
                 """
             }
         }
@@ -43,7 +47,7 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
                 bat """
-                ssh -i "%PEM_FILE%" -o StrictHostKeyChecking=no %EC2_USER%@%EC2_HOST% "/home/ubuntu/deploy.sh"
+                %SSH% -i "%PEM_FILE%" -o StrictHostKeyChecking=no %EC2_USER%@%EC2_HOST% "/home/ubuntu/deploy.sh"
                 """
             }
         }

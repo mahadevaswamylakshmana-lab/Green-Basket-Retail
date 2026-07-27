@@ -17,9 +17,12 @@ public class DBConnection {
 
             Properties properties = new Properties();
 
-            InputStream inputStream =
-                    DBConnection.class.getClassLoader()
-                            .getResourceAsStream("database.properties");
+            InputStream inputStream = DBConnection.class.getClassLoader()
+                    .getResourceAsStream("database.properties");
+
+            if (inputStream == null) {
+                throw new RuntimeException("database.properties file not found!");
+            }
 
             properties.load(inputStream);
 
@@ -27,11 +30,22 @@ public class DBConnection {
             username = properties.getProperty("db.username");
             password = properties.getProperty("db.password");
 
+            System.out.println("======================================");
+            System.out.println("Database Configuration Loaded");
+            System.out.println("URL      : " + url);
+            System.out.println("Username : " + username);
+            System.out.println("======================================");
+
             Class.forName("com.mysql.cj.jdbc.Driver");
+
+            System.out.println("MySQL JDBC Driver Loaded Successfully.");
 
         } catch (Exception e) {
 
+            System.out.println("Error while loading database configuration.");
             e.printStackTrace();
+
+            throw new RuntimeException(e);
 
         }
 
@@ -41,13 +55,23 @@ public class DBConnection {
 
         try {
 
-            return DriverManager.getConnection(url, username, password);
+            System.out.println("Attempting database connection...");
+
+            Connection con = DriverManager.getConnection(url, username, password);
+
+            System.out.println("Database Connected Successfully.");
+
+            return con;
 
         } catch (Exception e) {
 
+            System.out.println("Database Connection Failed!");
+            System.out.println("URL      : " + url);
+            System.out.println("Username : " + username);
+
             e.printStackTrace();
 
-            return null;
+            throw new RuntimeException("Failed to connect to database.", e);
 
         }
 

@@ -22,34 +22,44 @@ public class LoginServlet extends HttpServlet {
                           HttpServletResponse response)
             throws ServletException, IOException {
 
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-
         response.setContentType("text/html;charset=UTF-8");
 
-        try{
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-            Connection con=DBConnection.getConnection();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-            String sql="SELECT * FROM users WHERE username=? AND password=?";
+        try {
 
-            PreparedStatement ps=con.prepareStatement(sql);
+            System.out.println("========== LOGIN REQUEST ==========");
+            System.out.println("Username : " + username);
 
-            ps.setString(1,username);
+            con = DBConnection.getConnection();
 
-            ps.setString(2,password);
+            String sql = "SELECT * FROM users WHERE username=? AND password=?";
 
-            ResultSet rs=ps.executeQuery();
+            ps = con.prepareStatement(sql);
 
-            if(rs.next()){
+            ps.setString(1, username);
+            ps.setString(2, password);
 
-                HttpSession session=request.getSession();
+            rs = ps.executeQuery();
 
-                session.setAttribute("username",username);
+            if (rs.next()) {
+
+                System.out.println("Login Successful.");
+
+                HttpSession session = request.getSession();
+
+                session.setAttribute("username", username);
 
                 response.sendRedirect("dashboard.jsp");
 
-            }else{
+            } else {
+
+                System.out.println("Invalid Username or Password.");
 
                 response.getWriter().println("<h2>Invalid Username or Password</h2>");
                 response.getWriter().println("<br>");
@@ -57,13 +67,35 @@ public class LoginServlet extends HttpServlet {
 
             }
 
-            rs.close();
-            ps.close();
-            con.close();
+        } catch (Exception e) {
 
-        }catch(Exception e){
-
+            System.out.println("========== LOGIN ERROR ==========");
             e.printStackTrace();
+
+            response.getWriter().println("<h2>Application Error</h2>");
+            response.getWriter().println("<pre>");
+            e.printStackTrace(response.getWriter());
+            response.getWriter().println("</pre>");
+
+        } finally {
+
+            try {
+                if (rs != null)
+                    rs.close();
+            } catch (Exception ignored) {
+            }
+
+            try {
+                if (ps != null)
+                    ps.close();
+            } catch (Exception ignored) {
+            }
+
+            try {
+                if (con != null)
+                    con.close();
+            } catch (Exception ignored) {
+            }
 
         }
 

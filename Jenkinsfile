@@ -7,10 +7,10 @@ pipeline {
     }
 
     environment {
-        EC2_HOST = "54.224.170.179"
-        EC2_USER = "ubuntu"
-        PEM_FILE = "C:\\Users\\MAMATHA K\\Downloads\\green-basket-key.pem"
-    }
+    EC2_HOST = "54.224.170.179"
+    EC2_USER = "ubuntu"
+    PEM_FILE = "C:\\JenkinsKeys\\green-basket-key.pem"
+}
 
     stages {
 

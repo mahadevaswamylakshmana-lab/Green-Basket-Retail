@@ -32,7 +32,7 @@ if(session.getAttribute("username") == null){
 
     <hr>
 
-    <h2>Dashboard</h2>
+    <h2>Dashboard - Build 1</h2>
 
     <div class="menu">
 

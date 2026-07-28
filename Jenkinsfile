@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        EC2_HOST = "54.224.170.179"
+        EC2_HOST = "54.196.115.142"
         EC2_USER = "ubuntu"
 
         SSH = '"C:\\Program Files\\Git\\usr\\bin\\ssh.exe"'

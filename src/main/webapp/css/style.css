@@ -288,7 +288,7 @@ h3{
 
     color:#333;
 
-    font-size:22px;
+    font: size 23px;px;
 
 }
 
@@ -298,7 +298,7 @@ h3{
 
 .login-container{
 
-    width:95%;
+    width:96%;
 
     padding:25px;
 
